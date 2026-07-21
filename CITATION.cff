@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Flux rigidity for ancient single-mode solutions of 2D hydrostatic Euler — paper and verification package"
+authors:
+  - family-names: Jumagulov
+    given-names: Rifat
+    email: jum.rifm@gmail.com
+license: MIT
+repository-code: "https://github.com/rifmj/hydrostatic-flux-rigidity"
+keywords:
+  - hydrostatic Euler equations
+  - Liouville theorems
+  - ancient solutions
+  - flux rigidity
+  - incompressible flow
+  - exact verification
+preferred-citation:
+  type: article
+  title: "Flux rigidity for ancient single-mode solutions of the two-dimensional hydrostatic Euler equations"
+  authors:
+    - family-names: Jumagulov
+      given-names: Rifat
+  year: 2026
