@@ -152,9 +152,13 @@ horizontal generator of $H_1(\T^2;\ZZmod)$.
 \end{hypothesis}
 
 Hypothesis~\ref{hyp:conf} forbids exactly one topological event: a
-regular level component winding around the torus in the $\xi$-direction.
-Vertical winding, and arbitrary behavior at critical values, are allowed;
-the conventions are discussed in Remark~\ref{rem:conventions}.
+regular level component whose mod-$2$ class is the \emph{horizontal
+generator} --- the class of a circle $\{Z=\mathrm{const}\}$, i.e.\ odd
+winding in $\xi$ \emph{and} even winding in $Z$. Components of every
+other class are allowed: vertical winding, diagonal classes such as the
+$(1,1)$-levels of $\cos(\xi-Z)$ (Remark~\ref{rem:sharpness-k}), and
+arbitrary behavior at critical values; the conventions are discussed in
+Remark~\ref{rem:conventions}.
 
 \subsection*{Main results}
 
@@ -1340,11 +1344,11 @@ of the flux formula in polar and Fourier form, the parity
 cancellation, and the exact counterexample integral
 $\oint(\cos Z+\cos2Z)(1+\cos Z)^2\,dZ=5\pi/2$.
 \item \texttt{mutation\_tests.py} --- the reproducible corruption
-battery: six single-site mathematical corruptions of the checkers ---
+battery: nine single-site mathematical corruptions of the checkers ---
 including a drift of the parameter $\varepsilon$ itself, caught by the
-gates anchored to literal reference constants --- are applied to
-temporary copies, and each corrupted checker is asserted to exit
-nonzero.
+gates anchored to literal reference constants, and a corruption of the
+calibration control itself --- are applied to temporary copies, and
+each corrupted checker is asserted to exit nonzero.
 \end{itemize}
 
 Verification summary (reference run):

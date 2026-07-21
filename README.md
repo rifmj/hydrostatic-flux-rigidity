@@ -34,7 +34,7 @@ the computational identities and make the counterexample independently checkable
     python3 -m venv venv && source venv/bin/activate
     pip install -r requirements.txt   # pinned: sympy 1.14.0, numpy 2.4.6
     make verify                       # exact symbolic checks + gated numeric check
-    make verify-mutations             # 6-mutation corruption battery (all must be REJECTED)
+    make verify-mutations             # 9-mutation corruption battery (all must be REJECTED)
 
 Every script asserts its own checks and exits nonzero on any failure
 (see `anc/README.md` for details):
@@ -43,8 +43,8 @@ Every script asserts its own checks and exits nonzero on any failure
 |---|---|
 | `cas_class_exactness.py` | exact SymPy verification of the single-mode classification (rotation law, **symbolic** harmonic `k`), conservation of `S = P² + Q²`, the velocity formula, the flux formula and cubic parity (`k = 1,2,3`), Cartesian/polar compatibility |
 | `verify_flux_formula.py` | independent symbolic checks: flux formula in polar and Fourier form, parity cancellation, the exact witness integral `∮ (cos Z + cos 2Z)(1 + cos Z)² dZ = 5π/2` |
-| `counterexample_check.py` | float64 grid check of the flux witness (Prop. 7.1, `ε = 0.3`) with no hand-coded derivatives (FFT collocation); 9 gates including a calibration control (`b′ ≡ 0 ⟹` zero flux through the identical pipeline) and literal reference anchors independent of the `ε` symbol |
-| `mutation_tests.py` | applies six single-site mathematical corruptions to temporary copies of the checkers and asserts each corrupted checker exits nonzero |
+| `counterexample_check.py` | float64 grid check of the flux witness (Prop. 7.1, `ε = 0.3`) with no hand-coded derivatives (FFT collocation); 8 gates including a calibration control (`b′ ≡ 0 ⟹` zero flux through the identical pipeline) and literal reference anchors independent of the `ε` symbol |
+| `mutation_tests.py` | applies nine single-site mathematical corruptions to temporary copies of the checkers (including a corruption of the calibration control itself) and asserts each corrupted checker exits nonzero; representative, not exhaustive |
 
 Integrity chain: the top-level `SHA256SUMS` pins the paper source and `anc/SHA256SUMS`,
 which pins every ancillary file (verify: `shasum -c SHA256SUMS`).
@@ -53,8 +53,9 @@ which pins every ancillary file (verify: `shasum -c SHA256SUMS`).
 
 This work was carried out with substantial AI assistance in derivation, computation, and
 drafting. Every claim is backed by the proofs in the paper and the gated verification scripts
-here; the manuscript went through eighteen numbered rounds of independent external review
-(104 tracked findings, all resolved), including cross-model audits. The author takes full
+here; the manuscript went through nineteen numbered rounds of independent review
+(114 tracked findings; all resolved except four optional suggestions), including cross-model
+audits and a final full-protocol fresh pass. The author takes full
 responsibility for the contents.
 
 ## License

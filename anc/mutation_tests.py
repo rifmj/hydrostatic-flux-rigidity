@@ -15,6 +15,12 @@ Mutations (checker: corruption -> expected catching gate):
   M5 cx : slope prediction corrupted to the historical wrong-b'' formula
           -(EPS)*sin(Z)*(1+3*cos(Z))         -> gate (3) fit-vs-prediction
   M6 cx : EPS 0.3 -> 0.31 (parameter drift)  -> gates (2b)/(3b) literal anchors
+  M7 vff: polar flux prefactor 1/2 -> 1/3    -> check (1) exact identity
+  M8 cas: v-formula sign flip (+P_Z cos)     -> C4 residual nonzero
+  M9 cx : calibration control corrupted (scale_b 0.0 -> 0.01: the control
+          no longer zeroes the mean shear)   -> gate (0) calibration
+The battery is representative (one probe per checker surface class), not an
+exhaustive corruption of every gate.
 Exit 0 iff every mutation is rejected (nonzero exit of the mutant).
 """
 import pathlib
@@ -25,6 +31,7 @@ import tempfile
 HERE = pathlib.Path(__file__).resolve().parent
 CAS = (HERE / "cas_class_exactness.py").read_text()
 CX = (HERE / "counterexample_check.py").read_text()
+VFF = (HERE / "verify_flux_formula.py").read_text()
 
 MUTS = [
     ("M1-cas-flux-third", CAS,
@@ -41,6 +48,15 @@ MUTS = [
      "slope_s = sp.Abs(A_s * sp.diff(b_s, Zs, 2))",
      "slope_s = sp.Abs(A_s * (-EPS*sp.sin(Zs)*(1+3*sp.cos(Zs))))"),
     ("M6-cx-eps-drift", CX, "EPS = 0.3\n", "EPS = 0.31\n"),
+    ("M7-vff-polar-third", VFF,
+     "rhs = sp.Rational(1, 2) * sp.diff(b, Z) * A ** 2",
+     "rhs = sp.Rational(1, 3) * sp.diff(b, Z) * A ** 2"),
+    ("M8-cas-vformula-sign", CAS,
+     "v_claim = -sp.diff(b, Z) - sp.diff(P, Z)*sp.cos(k*xi)",
+     "v_claim = -sp.diff(b, Z) + sp.diff(P, Z)*sp.cos(k*xi)"),
+    ("M9-cx-calibration-corrupt", CX,
+     "phibar0 = np.mean([flux_at(t, scale_b=0.0) for t in np.linspace(0, 100, 11)])",
+     "phibar0 = np.mean([flux_at(t, scale_b=0.01) for t in np.linspace(0, 100, 11)])"),
 ]
 
 failures = []
@@ -64,5 +80,5 @@ with tempfile.TemporaryDirectory() as tmp:
 if failures:
     print(f"MUTATION-BATTERY-FAIL ({len(failures)}: {failures})")
     raise SystemExit(1)
-print("MUTATION-BATTERY-PASS: all 6 corrupted checkers rejected with nonzero exit")
+print("MUTATION-BATTERY-PASS: all 9 corrupted checkers rejected with nonzero exit")
 raise SystemExit(0)
