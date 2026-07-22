@@ -116,14 +116,18 @@ where $\mean{\cdot}$ denotes the normalized average over $\T^2$
   \Fbar:=\lim_{T\to\infty}\frac1T\int_{-T}^0\Phi(\tau)\,d\tau
 \end{equation}
 (a backward Ces\`aro mean; on the classes treated below the limit is
-shown to exist together with its value). The flux is the pairing of the
-undetermined mean shear with the squared modal amplitude of the wave; it
-is the vertical transport $-\mean{u^2v}$ of the horizontal kinetic energy
-$\tfrac12u^2$ by the transverse velocity $v$ --- a Reynolds-type second
-moment, not the flux of a conserved density (Remark~\ref{rem:observable}),
-and the natural scalar diagnostic of the mean sector against the wave. Its
-status as an observable, the normalization of the velocity field, and its
-behavior under Galilean boosts are discussed in
+shown to exist together with its value). With the horizontal kinetic
+energy $e_h:=\tfrac12u^2$, the flux is
+$\Phi=-\mean{u^2v}=-2\mean{v\,e_h}$: up to the conventional sign and the
+factor~$2$, it is the spatially averaged transverse advective transport of
+horizontal kinetic energy by the velocity component $v$ --- a third-order
+velocity correlation, not the flux of a conserved density
+(Remark~\ref{rem:observable}), and the natural scalar diagnostic of the
+undetermined mean sector against the wave. The unnormalized form
+$-\mean{u^2v}$ (without the factor $\tfrac12$) is chosen for the cleaner
+identity $\Phi=\tfrac{k^2}{4\pi}\oint b_ZS\,dZ$ below. Its status as an
+observable, the normalization of the velocity field, and its behavior
+under Galilean boosts are discussed in
 Remarks~\ref{rem:frame} and~\ref{rem:observable}.
 
 We work in the genre of Liouville theorems for \emph{ancient bounded}
@@ -200,8 +204,9 @@ channel:
 \begin{theorem}[Flux rigidity on the single-mode strata]
 \label{thm:main-intro}
 Fix $k\ge1$ and let $W$ be a single-mode solution of harmonic $k$
-satisfying Hypotheses~\ref{hyp:v} and~\ref{hyp:conf}. Then the ancient
-mean flux exists and vanishes: $\Fbar=0$.
+--- smooth on $\T^2\times(-\infty,0]$, with $\xi$-spectrum in
+$\{0,\pm k\}$ --- satisfying Hypotheses~\ref{hyp:v} and~\ref{hyp:conf}.
+Then the ancient mean flux exists and vanishes: $\Fbar=0$.
 \end{theorem}
 
 \begin{corollary}[KNSS-type form]\label{cor:knss}
@@ -279,8 +284,19 @@ optimal cylinder statement for time-dependent mean profiles is left open
 
 \subsection*{Context and scope}
 
-Steady cells ($b_Z\equiv0$) and traveling waves are the classical
-zero-flux members of the ancient class. For \emph{steady} hydrostatic
+Steady cells ($b_Z\equiv0$) are the classical zero-flux members of the
+ancient class. (Traveling waves in $\xi$ obtained by a Galilean boost lie
+outside the periodic-stream-function rest frame used here --- the boost
+adds $-cZ$, breaking $Z$-periodicity, and shifts the flux by
+$\Phi\mapsto\Phi-c\mean{u^2}$, Remark~\ref{rem:frame}. A rigid
+$\xi$-translation of the wave \emph{within} the periodic class forces
+$b_Z$ to be constant on $\{S>0\}$: a globally constant $b_Z\equiv-c$ is
+the non-periodic $b=-cZ$, whereas the periodic alternative --- $b_Z$
+constant on the wave support, compensated in a spectral gap --- does
+exist, but is exactly the flux-carrying compensated-gap witness of
+Proposition~\ref{prop:gapwitness}, which violates
+Hypothesis~\ref{hyp:conf}. Either way it is not a zero-flux member of the
+confined class.) For \emph{steady} hydrostatic
 flows rigidity results are available: Leung--Wong--Xie \cite{LWX2024}
 prove, as one ingredient of their characterization of steady nozzle
 flows, that steady solutions in an infinite strip strictly away from
@@ -468,8 +484,9 @@ $k$. In particular the \emph{squared modal amplitude}
   S(Z):=P^2+Q^2=P_0^2+Q_0^2
 \]
 (so that $\sqrt S$ is the wave amplitude and, by Lemma~\ref{lem:flux},
-$\mean{u^2}_\xi=\tfrac{k^2}2S$ is the horizontal kinetic energy of the
-mode) is time-independent, and \eqref{eq:full-class} is \emph{exactly} the
+$\mean{u^2}_\xi=\tfrac{k^2}2S$ is the mean square of the wave velocity,
+whose horizontal kinetic energy is $\mean{\tfrac12u^2}_\xi=\tfrac{k^2}4S$)
+is time-independent, and \eqref{eq:full-class} is \emph{exactly} the
 single-mode class of harmonic $k$: every such solution is realized by
 exactly one pair of smooth $2\pi$-periodic Fourier coefficients
 $(P_0,Q_0)$ and one smooth mean trajectory $b(\cdot,\cdot)$, namely its
@@ -636,12 +653,11 @@ $c^*\in b(J)$ is a regular value of $W(\cdot,\cdot,\tau)$. For any such
 $c^*=b(Z^*)$, $Z^*\in J$, the connected component of
 $\{W(\cdot,\cdot,\tau)=c^*\}$ through $(\cdot,Z^*)$ is exactly the
 horizontal circle $\{Z=Z^*\}$. Indeed, on $\T_\xi\times I$ one has
-$W=b(Z)$, so the level set there is
-$\T_\xi\times\{Z\in I:b(Z)=c^*\}$; since $b'\neq0$ on $J$ the value $c^*$
-is attained at the single point $Z^*\in J$, and the compact circle
-$\{Z=Z^*\}$ --- regular, since $|\nabla W|=|b'(Z^*)|\neq0$ --- is thus a
-full connected component of the level, freely homotopic to a horizontal
-circle. The gap region is invariant under the
+$W=b(Z)$; since $b'(Z^*)\neq0$, $b$ is strictly monotone on a collar
+$U\ni Z^*$ in which $b(Z)=c^*$ holds only at $Z=Z^*$, so $\{Z=Z^*\}$ is
+open in the level set $\{W=c^*\}$; being also compact, it is closed in
+that level (which is regular, $|\nabla W|=|b'(Z^*)|\neq0$), hence a full
+connected component --- freely homotopic to a horizontal circle. The gap region is invariant under the
 shear conjugacy of Lemma~\ref{lem:class-static}, so this component
 persists for all $\tau$, violating Hypothesis~\ref{hyp:conf}. Hence
 $b'\equiv0$ on $\intr\{S=0\}$ (and so also $b''\equiv0$ there).
@@ -868,8 +884,11 @@ $1$-manifold (finitely many disjoint embedded circles, contained in the
 open annulus) which separates the two ends: every continuous path from
 one boundary to the other carries $W$ from a value $<\lambda$ to a
 value $>\lambda$ and therefore meets $L$ by the intermediate value
-theorem. By Lemma~\ref{lem:annulus-top}, some component of $L$ is freely
-homotopic to a horizontal circle --- and $\lambda$ is a
+theorem. By Lemma~\ref{lem:annulus-top}, some component $L_i$ of $L$ is
+freely homotopic to a horizontal circle. Since $W=\beta_j,\beta_{j+1}
+\neq\lambda$ on the two boundary circles, $L$ is disjoint from
+$\partial\mathcal A$, so $L_i$ is a component of the global level
+$\{W(\cdot,\cdot,\tau)=\lambda\}$ as well; and $\lambda$ is a
 regular value, so this violates Hypothesis~\ref{hyp:conf}. Hence
 $\beta_j=\beta_{j+1}$ for a.e.\ $\tau$, and since
 $\tau\mapsto b(z_{j+1},\tau)-b(z_j,\tau)$ is continuous and vanishes on
@@ -1120,9 +1139,10 @@ $b''\equiv0$ on $\Omega=\{S>0\}$. Step 3 applies verbatim on any
 bounded gap; on an unbounded gap $I$ the same argument works: the
 horizontal line $\{Z=Z^*\}$, $Z^*\in I$ with $b'(Z^*)\neq0$, chosen at
 a Sard-regular value as before, is a regular level component (regular
-since $|\nabla W|=|b'(Z^*)|\neq0$; a \emph{complete} component since
-$Z^*$ is an isolated root of $b(Z)=c^*$ by $b'(Z^*)\neq0$, so the level
-contains no other nearby points) which is a circle in
+since $|\nabla W|=|b'(Z^*)|\neq0$; a \emph{complete} component because,
+$b$ being strictly monotone on a collar $U\ni Z^*$ where $b(Z)=c^*$ only
+at $Z=Z^*$, the circle $\{Z=Z^*\}$ is open in the level $\{W=c^*\}$ and,
+being compact, closed in it) which is a circle in
 $\T_\xi\times\R$ freely homotopic to $\{Z=\mathrm{const}\}$, generating
 $H_1(\T_\xi\times\R;\mathbb Z)$.
 The density argument of Step 4 then gives $b''\equiv0$ on $\R$, so

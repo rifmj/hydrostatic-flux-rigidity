@@ -9,6 +9,7 @@ Run (Python >= 3.11 with sympy + numpy; reference environment: Python
 3.13.13, SymPy 1.14.0, NumPy 2.4.6 -- see requirements.txt):
 
     make verify             # exact symbolic checks + gated numeric check
+    make verify-fast        # same, with counterexample_check.py --fast (~5 s total)
     make verify-mutations   # 9-mutation corruption battery (all must be REJECTED)
 
 Every script asserts its checks and exits nonzero on any failure.
@@ -50,4 +51,7 @@ analytically in the paper; these numerics are auxiliary diagnostics.
   that accepts a corrupted certificate is not a verifier). The battery is
   representative -- one probe per checker surface class -- not an exhaustive
   corruption of every gate.
-- SHA256SUMS -- checksums of the shipped files (verify: `shasum -c SHA256SUMS`).
+- SHA256SUMS -- checksums of the shipped files. Verify with
+  `sha256sum -c SHA256SUMS` (GNU/Linux) or `shasum -a 256 -c SHA256SUMS`
+  (BSD/macOS); the explicit `-a 256` avoids the SHA-1 default of older
+  `shasum`.
