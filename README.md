@@ -1,5 +1,7 @@
 # Flux rigidity for ancient single-mode solutions of 2D hydrostatic Euler
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21492644.svg)](https://doi.org/10.5281/zenodo.21492644)
+
 Paper and gated exact-verification package for
 
 > R. Jumagulov, *Flux rigidity for ancient single-mode solutions of the two-dimensional
