@@ -1,0 +1,23 @@
+{
+  "title": "Flux rigidity for ancient single-mode solutions of the two-dimensional hydrostatic Euler equations — paper and verification package",
+  "upload_type": "software",
+  "description": "<p>Paper (18 pp) and gated exact-verification package for <em>Flux rigidity for ancient single-mode solutions of the two-dimensional hydrostatic Euler equations</em>.</p><p>The paper proves a Liouville-type flux-rigidity theorem for the 2D hydrostatic Euler equations on the periodic cell: for each harmonic <em>k</em> ≥ 1, every exact single-mode solution which is ancient, has uniformly bounded transverse velocity, and none of whose regular stream-function level components is freely homotopic to a horizontal circle, has vanishing backward Cesàro mean flux.</p><p>This archive contains the LaTeX source and compiled PDF together with four standalone Python/SymPy verification scripts (exact classification and flux identities with symbolic <em>k</em>; a gated float64 check of the counterexample with no hand-coded derivatives; a nine-mutation corruption battery), a Makefile with <code>verify</code>/<code>verify-fast</code>/<code>verify-mutations</code> targets, pinned dependency versions, and chained SHA-256 checksums. None of the scripts is load-bearing for the proofs, which are complete in the paper; they pin the computational identities and make the counterexample independently checkable. The manuscript underwent twenty-two rounds of independent review, including cross-model audits.</p>",
+  "creators": [
+    {
+      "name": "Jumagulov, Rifat",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "hydrostatic Euler equations",
+    "Liouville theorems",
+    "ancient solutions",
+    "flux rigidity",
+    "level-set topology",
+    "incompressible flow",
+    "exact verification"
+  ],
+  "version": "v1.0.0"
+}
