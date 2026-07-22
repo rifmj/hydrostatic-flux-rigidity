@@ -45,18 +45,18 @@ hydrostatic Euler equations on the periodic cell $\T^2$. For each $k\ge1$,
 the class of exact solutions whose $\xi$-spectrum is supported on
 $\{0,\pm k\}$ is exactly parametrized in Fourier form: an arbitrary smooth
 mean profile $b(Z,\tau)$ transports an arbitrary initial fluctuation by
-the accumulated shear, and the modal energy $S=P^2+Q^2$ is
+the accumulated shear, and the squared modal amplitude $S=P^2+Q^2$ is
 time-independent. The main theorem states that every such solution which
 is ancient, has uniformly bounded velocity component $v$ on
 $\tau\le0$, and for which, at almost every time, no regular stream-function level
-component realizes the horizontal generator of $H_1(\T^2;\ZZmod)$, has
+component is freely homotopic to a horizontal circle $\{Z=\mathrm{const}\}$, has
 vanishing backward Ces\`aro mean flux
 $\Fbar=-\overline{\mean{u^2v}}=0$. For a time-independent mean profile the
 mechanism is secular; in general it combines an annular separation lemma
 with an anchored estimate on the time-averaged shear. Each hypothesis is
 necessary at every fixed $k$: explicit witnesses carry flux
 $5k^2\varepsilon/8$ when the $v$-bound is dropped, and a
-compensated-gap shear when horizontal winding is allowed. A cylinder analogue holds for time-independent mean
+compensated-gap shear when a horizontal level is admitted. A cylinder analogue holds for time-independent mean
 profiles; the multi-mode problem remains open.
 \end{abstract}
 
@@ -117,7 +117,11 @@ where $\mean{\cdot}$ denotes the normalized average over $\T^2$
 \end{equation}
 (a backward Ces\`aro mean; on the classes treated below the limit is
 shown to exist together with its value). The flux is the pairing of the
-undetermined mean shear with the modal energy weight of the wave; its
+undetermined mean shear with the squared modal amplitude of the wave; it
+is the vertical transport $-\mean{u^2v}$ of the horizontal kinetic energy
+$\tfrac12u^2$ by the transverse velocity $v$ --- a Reynolds-type second
+moment, not the flux of a conserved density (Remark~\ref{rem:observable}),
+and the natural scalar diagnostic of the mean sector against the wave. Its
 status as an observable, the normalization of the velocity field, and its
 behavior under Galilean boosts are discussed in
 Remarks~\ref{rem:frame} and~\ref{rem:observable}.
@@ -143,22 +147,30 @@ $W$ is a solution of \eqref{eq:pde} on $\tau\in(-\infty,0]$ with
 \]
 \end{hypothesis}
 
-\begin{hypothesis}[No horizontal winding]\label{hyp:conf}
+\begin{hypothesis}[No horizontal level]\label{hyp:conf}
 For a.e.\ $\tau\le0$ (with respect to Lebesgue measure) and every regular
 value $c$ of $W(\cdot,\cdot,\tau)$ --- that is, every $c$ outside the
 null set of critical values furnished by Sard's theorem --- no connected
-component of the level set $\{W(\cdot,\cdot,\tau)=c\}$ realizes the
-horizontal generator of $H_1(\T^2;\ZZmod)$.
+component of the level set $\{W(\cdot,\cdot,\tau)=c\}$ is freely homotopic
+in $\T^2$ to a horizontal circle $\{Z=\mathrm{const}\}$; equivalently,
+after choosing an orientation, no such component represents
+$\pm(1,0)\in H_1(\T^2;\mathbb Z)$.
 \end{hypothesis}
 
 Hypothesis~\ref{hyp:conf} forbids exactly one topological event: a
-regular level component whose mod-$2$ class is the \emph{horizontal
-generator} --- the class of a circle $\{Z=\mathrm{const}\}$, i.e.\ odd
-winding in $\xi$ \emph{and} even winding in $Z$. Components of every
-other class are allowed: vertical winding, diagonal classes such as the
-$(1,1)$-levels of $\cos(\xi-Z)$ (Remark~\ref{rem:sharpness-k}), and
-arbitrary behavior at critical values; the conventions are discussed in
-Remark~\ref{rem:conventions}.
+regular level component that wraps the torus horizontally, in the sense
+of being freely homotopic to a circle $\{Z=\mathrm{const}\}$ --- integer
+class $\pm(1,0)$, i.e.\ winding once in $\xi$ and \emph{zero} times in
+$Z$. Every other class is allowed: vertical winding, and diagonal classes
+such as the $(1,1)$-levels of $\cos(\xi-Z)$
+(Remark~\ref{rem:sharpness-k}); so is arbitrary behavior at critical
+values. Only the free-homotopy class --- not its mod-$2$ reduction --- is
+used: the separating level produced in the annular argument
+(Lemma~\ref{lem:annulus-top}) is an \emph{embedded essential} circle,
+hence isotopic to the core of its annulus and of integer class exactly
+$\pm(1,0)$, so classes such as $(1,2)$ (which a mod-$2$ condition would
+also forbid) never arise and are left admissible. The conventions are
+discussed in Remark~\ref{rem:conventions}.
 
 \subsection*{Main results}
 
@@ -175,7 +187,7 @@ parametrization in Fourier form:
 with $B(Z,\tau):=\int_0^\tau b(Z,s)\,ds$: the fluctuation at time $\tau$
 is the initial fluctuation composed with the accumulated shear,
 $W'(\xi,Z,\tau)=W'_0(\xi+\partial_ZB(Z,\tau),Z)$, uniformly in $k$. In
-particular the \emph{modal energy} $S:=P^2+Q^2=P_0^2+Q_0^2$ is
+particular the \emph{squared modal amplitude} $S:=P^2+Q^2=P_0^2+Q_0^2$ is
 time-independent, while the mean profile $b$ remains completely free (the
 undetermined mean sector). On this class the flux is a pure mean-shear
 channel:
@@ -197,8 +209,9 @@ is ancient with \emph{both} velocity components uniformly bounded and
 component of $W(\cdot,\cdot,\tau)$ is contractible in $\T^2$.
 \end{corollary}
 
-Indeed, a contractible component is null-homotopic, hence trivial in
-$H_1(\T^2;\ZZmod)$, so confinement implies Hypothesis~\ref{hyp:conf}; and
+Indeed, a contractible component is null-homotopic, hence not freely
+homotopic to any essential circle --- in particular not to a horizontal
+one --- so confinement implies Hypothesis~\ref{hyp:conf}; and
 boundedness of both components implies Hypothesis~\ref{hyp:v}. We
 emphasize that the corollary's hypotheses are strictly stronger than the
 theorem's: on the single-mode class the $u$-bound is automatic
@@ -224,7 +237,7 @@ $Z$ with $S(Z)b''(Z)\neq0$ makes $\sup|v|$ grow linearly in backward time
 --- \textbf{flux costs unbounded~$v$}. The velocity bound therefore
 forces $b''\equiv0$ on $\{S>0\}$, Hypothesis~\ref{hyp:conf} forces
 $b'\equiv0$ on the interior of $\{S=0\}$ (a horizontal circle in a
-spectral gap realizes the horizontal generator), and a
+spectral gap is itself such a level), and a
 density-plus-continuity argument propagates $b''\equiv0$ to all of $\T$,
 whence $b'\equiv c_0$ and finally $c_0=0$.
 
@@ -242,9 +255,9 @@ which we isolate as an \emph{annular separation} argument
 annulus between two consecutive zeros of $\sqrt S$ the stream function
 is constant on each boundary circle; if the two boundary values differ,
 every intermediate Sard-regular level separates the ends of the annulus,
-and a finite union of components none of which carries the core class
-cannot separate --- so some component realizes the horizontal generator,
-violating Hypothesis~\ref{hyp:conf}. This pins the mean profile,
+and a finite union of components none of which is freely homotopic to the
+core cannot separate --- so some component is freely homotopic to a
+horizontal circle, violating Hypothesis~\ref{hyp:conf}. This pins the mean profile,
 $b(z_{j+1},\tau)=b(z_j,\tau)$ for every $\tau$, on every arc between
 consecutive zeros of $\sqrt S$. An anchored estimate derived from the
 $v$-bound, $k\sqrt S\,|\partial_Z\bar V_T|\le K_0/T$ with
@@ -255,7 +268,7 @@ equidistribute to zero against the weight $S$, and $\Fbar=0$ follows.
 The two hypotheses are each necessary, at every fixed harmonic
 (Section~\ref{sec:sharpness}):
 dropping the $v$-bound admits the explicit flux-carrying witness of
-Proposition~\ref{prop:counterexample}, and allowing horizontal winding
+Proposition~\ref{prop:counterexample}, and admitting a horizontal level
 admits a compensated-gap shear witness
 (Proposition~\ref{prop:gapwitness}). The theorem for time-independent
 mean profiles has a cylinder analogue (Theorem~\ref{thm:cylinder}); the
@@ -269,16 +282,33 @@ zero-flux members of the ancient class. For \emph{steady} hydrostatic
 flows rigidity results are available: Leung--Wong--Xie \cite{LWX2024}
 prove, as one ingredient of their characterization of steady nozzle
 flows, that steady solutions in an infinite strip strictly away from
-stagnation are shear flows (see also the references there). The present
-result concerns the genuinely time-dependent ancient regime, where the
-freedom of the undetermined mean sector is the central difficulty; with
-the classification stated in Fourier form, the theorem covers each
-single-mode stratum in full. The multi-mode problem remains open --- to
-the best of the author's knowledge, no Liouville-type result is
-available for the time-dependent ancient regime beyond the single-mode
-strata --- and appears to be of a different nature; we state it
-precisely in Section~\ref{sec:open}. We do not claim any consequence at
-the level of the primitive (axisymmetric Navier--Stokes) equations.
+stagnation are shear flows (see also the references there). Rigidity of a
+different flavour appears for neighbouring geophysical systems:
+Peralta-Salas--Slobodeanu \cite{PeraltaSlobodeanu2023} prove the
+nonexistence of smooth compactly supported \emph{stationary} solutions of
+the $3$D primitive equations, and Martin \cite{Martin2023} obtains
+Liouville-type results for time-dependent stratified flows in the
+$\beta$-plane. On the conserved-quantity side, in the spirit of Onsager's conjecture
+for the hydrostatic Euler equations, sufficient regularity criteria for
+conservation of the horizontal kinetic energy of weak solutions are
+established by Boutros--Markfelder--Titi \cite{BMTOnsager2023}.
+
+The present result concerns the genuinely time-dependent ancient regime,
+where the freedom of the undetermined mean sector is the central
+difficulty. Its novelty is not the single-mode classification (which
+follows by substitution) but the combination of three ingredients: the
+exact phase-evolution formula \eqref{eq:full-class}, the representation of
+the flux as the weighted mean shear
+$\Phi=\tfrac{k^2}{4\pi}\oint b_Z S\,dZ$, and the topological argument by
+which the transverse-velocity bound and the no-horizontal-level
+hypothesis together force $\Fbar=0$. With the classification stated in
+Fourier form, the theorem covers each single-mode stratum in full. The
+multi-mode problem remains open --- to the best of the author's
+knowledge, no Liouville-type result is available for the time-dependent
+ancient regime of the hydrostatic Euler equations beyond the single-mode
+strata --- and appears to be of a different nature; we state it precisely
+in Section~\ref{sec:open}. We do not claim any consequence at the level
+of the primitive (axisymmetric Navier--Stokes) equations.
 
 A remark on verification: the classification identities of
 Lemma~\ref{lem:class-cartesian}, the flux formula, and the
@@ -353,6 +383,10 @@ shifts by
 with $\mean{u^2}=\tfrac{k^2}{4\pi}\oint S\,dZ$ conserved on the classes
 below; the value of $\Phi$ is therefore frame-dependent, and
 Theorem~\ref{thm:main-intro} is a statement in the canonical rest frame.
+Because the boost adds the term $-cZ$ it breaks $Z$-periodicity, so no
+nontrivial $\xi$-boost preserves the periodic class; the level-set
+hypothesis (Hypothesis~\ref{hyp:conf}), like $\Phi$ itself, is thus
+intrinsically a rest-frame condition.
 \end{remark}
 
 \begin{remark}[The flux as an observable]\label{rem:observable}
@@ -388,12 +422,19 @@ different, and for our purposes wrong, condition). (ii) The hypothesis
 is stated per regular \emph{value}; this single reading is used at both
 consumption sites (Step~3 of Theorem~\ref{thm:static},
 Lemma~\ref{lem:annular}). Under the alternative per-\emph{component}
-reading --- forbidding horizontal winding for every component on which
+reading --- forbidding a horizontal level for every component on which
 $\nabla W\neq0$, regardless of the value --- the theorems also hold,
 with slightly lower regularity requirements
-(Remark~\ref{rem:regularity}). (iii) Only the $\ZZmod$-class of the
-horizontal generator is used, which is why the hypothesis is phrased in
-$H_1(\T^2;\ZZmod)$.
+(Remark~\ref{rem:regularity}). (iii) The condition is stated by free
+homotopy (integer class $\pm(1,0)$), not by its mod-$2$ reduction. This
+is exactly what the proofs use --- the only components they ever produce
+are embedded essential annular circles, of integer class exactly
+$\pm(1,0)$ (Lemma~\ref{lem:annulus-top}) --- so a mod-$2$ formulation
+would forbid strictly more (e.g.\ class $(1,2)$) with no gain. A
+by-product is \emph{cover-invariance}: the condition is preserved under
+the $k$-fold covers $\eta_k(\xi,Z)=(k\xi,Z)$ of
+Section~\ref{sec:sharpness} (a component is horizontal iff its
+$\eta_k$-image is), which the mod-$2$ condition is not.
 \end{remark}
 
 \section{The single-mode classes}\label{sec:class}
@@ -420,11 +461,13 @@ $B(Z,\tau):=\int_0^\tau b(Z,s)\,ds$ and $(P_0,Q_0):=(P,Q)(\cdot,0)$,
 the fluctuation at time $\tau$ is the initial fluctuation composed with
 the accumulated shear,
 $W'(\xi,Z,\tau)=W'_0\bigl(\xi+\partial_ZB(Z,\tau),Z\bigr)$, uniformly in
-$k$. In particular the \emph{modal energy}
+$k$. In particular the \emph{squared modal amplitude}
 \[
   S(Z):=P^2+Q^2=P_0^2+Q_0^2
 \]
-is time-independent, and \eqref{eq:full-class} is \emph{exactly} the
+(so that $\sqrt S$ is the wave amplitude and, by Lemma~\ref{lem:flux},
+$\mean{u^2}_\xi=\tfrac{k^2}2S$ is the horizontal kinetic energy of the
+mode) is time-independent, and \eqref{eq:full-class} is \emph{exactly} the
 single-mode class of harmonic $k$: every such solution is realized by
 exactly one pair of smooth $2\pi$-periodic Fourier coefficients
 $(P_0,Q_0)$ and one smooth mean trajectory $b(\cdot,\cdot)$, namely its
@@ -588,10 +631,15 @@ $\xi$-dependence. Suppose $b'(Z_0)\neq0$ for some $Z_0\in I$.
 Pick a closed subinterval $J\subset I$ with $b'\neq0$ on $J$; then
 $b(J)$ is a nondegenerate interval, and by Sard's theorem a.e.\
 $c^*\in b(J)$ is a regular value of $W(\cdot,\cdot,\tau)$. For any such
-$c^*=b(Z^*)$, $Z^*\in J$, the level component through $(\cdot,Z^*)$ is
-exactly the horizontal circle $\{Z=Z^*\}$: regular (since
-$|\nabla W|=|b'(Z^*)|\neq0$ there) and realizing the horizontal
-generator of $H_1(\T^2;\ZZmod)$. The gap region is invariant under the
+$c^*=b(Z^*)$, $Z^*\in J$, the connected component of
+$\{W(\cdot,\cdot,\tau)=c^*\}$ through $(\cdot,Z^*)$ is exactly the
+horizontal circle $\{Z=Z^*\}$. Indeed, on $\T_\xi\times I$ one has
+$W=b(Z)$, so the level set there is
+$\T_\xi\times\{Z\in I:b(Z)=c^*\}$; since $b'\neq0$ on $J$ the value $c^*$
+is attained at the single point $Z^*\in J$, and the compact circle
+$\{Z=Z^*\}$ --- regular, since $|\nabla W|=|b'(Z^*)|\neq0$ --- is thus a
+full connected component of the level, freely homotopic to a horizontal
+circle. The gap region is invariant under the
 shear conjugacy of Lemma~\ref{lem:class-static}, so this component
 persists for all $\tau$, violating Hypothesis~\ref{hyp:conf}. Hence
 $b'\equiv0$ on $\intr\{S=0\}$ (and so also $b''\equiv0$ there).
@@ -669,12 +717,12 @@ concentrated at simple zeros of $\sqrt S$, which satisfy the $v$-bound
 by exact saturation of the anchored estimate below and arrange the zero
 circles $\{Z=z_j\}$ to be critical ($|b_Z|\le|X_0'|$ there), hence
 exempt from Hypothesis~\ref{hyp:conf}; if instead $|b_Z|>|X_0'|$ on a
-zero circle, that circle is itself a regular level component realizing
-the horizontal generator and the hypothesis already fails (proof of
-Lemma~\ref{lem:annular}). The theorem excludes this candidate not at
+zero circle, that circle is itself a regular level component freely
+homotopic to a horizontal circle and the hypothesis already fails (proof
+of Lemma~\ref{lem:annular}). The theorem excludes this candidate not at
 the zero circles but \emph{next to} them: the separating levels at
 values strictly between the boundary plateaus are regular, and they
-wind.
+wind horizontally.
 
 Throughout this section $W$ is a member of \eqref{eq:full-class}
 satisfying Hypotheses~\ref{hyp:v} and~\ref{hyp:conf}; $C_v$ is the
@@ -686,7 +734,10 @@ is the backward time-averaged shear at horizon $T>0$. We assume
 $\sqrt S$ has at least one zero; otherwise $\Omega=\T$ and the (easier)
 gap-free argument of Remark~\ref{rem:gapfree} applies verbatim. (If
 $S\equiv0$ the solution is a pure mean trajectory, $\Phi\equiv0$, and
-there is nothing to prove.)
+there is nothing to prove.) Two ``components'' occur below and should not
+be conflated: a \emph{component of $\Omega=\{S>0\}$} is an arc in the
+$Z$-circle, while a \emph{level component} is a connected component of a
+level set $\{W(\cdot,\cdot,\tau)=c\}$ in $\T^2$.
 
 \begin{lemma}[$\xi$-average of $v$; boundedness of the shear]
 \label{lem:vmean}
@@ -746,10 +797,12 @@ $L\subset\T_\xi\times(z_0,z_1)$ be a compact embedded $1$-manifold
 (finitely many disjoint circles) which \emph{separates} the two boundary
 circles of $\mathcal A$: every continuous path in $\mathcal A$ from
 $\T_\xi\times\{z_0\}$ to $\T_\xi\times\{z_1\}$ meets $L$. Then some
-component of $L$ represents the core class
-$[\T_\xi\times\{\mathrm{pt}\}]\in H_1(\mathcal A;\ZZmod)$; under the
-inclusion $\mathcal A\hookrightarrow\T^2$ this class maps to the
-horizontal generator of $H_1(\T^2;\ZZmod)$.
+component $L_i$ of $L$ represents the core class
+$[\T_\xi\times\{\mathrm{pt}\}]\in H_1(\mathcal A;\ZZmod)$. Being an
+embedded circle that is essential in $\mathcal A$, $L_i$ is isotopic to
+the core; under the inclusion $\mathcal A\hookrightarrow\T^2$ it is
+therefore freely homotopic to a horizontal circle $\{Z=\mathrm{const}\}$,
+of integer class $\pm(1,0)$.
 \end{lemma}
 
 \begin{proof}
@@ -778,9 +831,11 @@ outside. Hence the total number of crossings of $U$-bounding components
 is odd, and some $U$-bounding component $L_i$ has
 $\#(\gamma\cap L_i)$ odd, i.e.\ $[L_i]\cdot[\gamma]=1$; perfectness of
 the pairing forces $[L_i]=[\mathrm{core}]$ in
-$H_1(\mathcal A;\ZZmod)$. The inclusion
-$\mathcal A\hookrightarrow\T^2$ sends the core circle to a horizontal
-circle, whose class is the horizontal generator of $H_1(\T^2;\ZZmod)$.
+$H_1(\mathcal A;\ZZmod)$. A $\ZZmod$-essential embedded circle in an
+annulus is essential over $\mathbb Z$ as well, hence isotopic to the
+core; the inclusion $\mathcal A\hookrightarrow\T^2$ then carries $L_i$ to
+a curve freely homotopic to a horizontal circle $\{Z=\mathrm{const}\}$,
+of integer class $\pm(1,0)$.
 \end{proof}
 
 \begin{lemma}[Annular separation; arc matching]\label{lem:annular}
@@ -811,8 +866,8 @@ $1$-manifold (finitely many disjoint embedded circles, contained in the
 open annulus) which separates the two ends: every continuous path from
 one boundary to the other carries $W$ from a value $<\lambda$ to a
 value $>\lambda$ and therefore meets $L$ by the intermediate value
-theorem. By Lemma~\ref{lem:annulus-top}, some component of $L$ realizes
-the horizontal generator of $H_1(\T^2;\ZZmod)$ --- and $\lambda$ is a
+theorem. By Lemma~\ref{lem:annulus-top}, some component of $L$ is freely
+homotopic to a horizontal circle --- and $\lambda$ is a
 regular value, so this violates Hypothesis~\ref{hyp:conf}. Hence
 $\beta_j=\beta_{j+1}$ for a.e.\ $\tau$, and since
 $\tau\mapsto b(z_{j+1},\tau)-b(z_j,\tau)$ is continuous and vanishes on
@@ -830,12 +885,13 @@ has a definite sign on the circle, hence on a tubular neighborhood of
 it, so by the implicit function theorem every level $\{W=\lambda\}$
 with $\lambda$ near $\beta_j$ meets the tube in a graph
 $\{Z=\zeta_\lambda(\xi)\}$ --- a regular closed curve winding once in
-$\xi$; choosing such a $\lambda$ that is moreover a Sard-regular value
-of $W$ gives a regular level component realizing the horizontal
-generator, and Hypothesis~\ref{hyp:conf} fails under either reading of
+$\xi$ and not at all in $Z$ (integer class $(1,0)$); choosing such a
+$\lambda$ that is moreover a Sard-regular value of $W$ gives a regular
+level component freely homotopic to a horizontal circle, and
+Hypothesis~\ref{hyp:conf} fails under either reading of
 Remark~\ref{rem:conventions}. In either case the separating levels at
 values strictly between $\beta_j$ and $\beta_{j+1}$ are regular by the
-Sard selection, and it is exactly these that wind.
+Sard selection, and it is exactly these that wind horizontally.
 \end{proof}
 
 \begin{figure}
@@ -875,16 +931,18 @@ Sard selection, and it is exactly these that wind.
 \draw (2.5,0.75) ellipse (0.55 and 0.38);
 \end{scope}
 \end{tikzpicture}
-\caption{Level-set portraits. (a)~Regular levels of the counterexample
+\caption{Level-set portraits, each drawn on the fundamental square of
+$\T^2$ with opposite sides identified (top/bottom are $Z=0,2\pi$;
+left/right are $\xi=0,2\pi$). (a)~Regular levels of the counterexample
 of Proposition~\ref{prop:counterexample}: contractible fold ovals; the
 seam $\{Z=\pi\}$ is entirely critical. (b)~The annulus between
 consecutive zeros of $\sqrt S$: when the boundary plateaus differ, a
-Sard-regular intermediate level separates the ends and some component
-winds horizontally
+Sard-regular intermediate level separates the ends and some component is
+freely homotopic to a horizontal circle
 (Lemmas~\ref{lem:annulus-top} and~\ref{lem:annular}); $\gamma$ is the
 transverse arc of the mod-$2$ pairing. (c)~The compensated-gap witness
 of Proposition~\ref{prop:gapwitness}: horizontal regular levels inside
-the gap realize the horizontal generator.}
+the gap are freely homotopic to a horizontal circle.}
 \label{fig:portraits}
 \end{figure}
 
@@ -994,7 +1052,7 @@ separation}, not through local winding at the front.
 
 \begin{remark}[One separation device, two analytic drivers]
 \label{rem:unified}
-The horizontal-generator separation argument appears three times in
+The horizontal-level separation argument appears three times in
 this paper: in the spectral gaps (Step~3 of Theorem~\ref{thm:static} is
 the degenerate case where a boundary plateau thickens to an interval),
 on the arcs between consecutive zeros (Lemma~\ref{lem:annular}), and on
@@ -1007,8 +1065,8 @@ anchored cap of Lemma~\ref{lem:anchor} in general.
 
 \begin{remark}[Conserved quantities; Ces\`aro-only convergence]
 \label{rem:consistency}
-On the class \eqref{eq:full-class}, $\mean{u^3}\equiv0$ and the modal
-energy $S$ is pointwise conserved (Lemma~\ref{lem:class-cartesian}).
+On the class \eqref{eq:full-class}, $\mean{u^3}\equiv0$ and the squared
+modal amplitude $S$ is pointwise conserved (Lemma~\ref{lem:class-cartesian}).
 Theorem~\ref{thm:full} proves that the backward Ces\`aro mean of the
 flux exists and equals zero; no pointwise limit of $\Phi(\tau)$ as
 $\tau\to-\infty$ is asserted, and none holds in general. A rigorous
@@ -1046,8 +1104,9 @@ $\mean{v}_\xi=-b'$). If
 $C_v=\sup_{\tau\le0}\|v(\cdot,\cdot,\tau)\|_{L^\infty}<\infty$ and,
 for a.e.\ $\tau\le0$ --- equivalently, by the shear conjugacy of
 Lemma~\ref{lem:class-static}, for one $\tau$ --- no regular level
-component of $W(\cdot,\cdot,\tau)$ realizes the generator of
-$H_1(\T_\xi\times\R;\ZZmod)$, then $b'\equiv0$: the mean profile is
+component of $W(\cdot,\cdot,\tau)$ is freely homotopic to a horizontal
+circle $\{Z=\mathrm{const}\}$ (equivalently, generates
+$H_1(\T_\xi\times\R;\mathbb Z)$), then $b'\equiv0$: the mean profile is
 constant. In particular the pointwise flux density vanishes,
 $\mean{W_Zu^2}_\xi=\tfrac{k^2}2\,b'S\equiv0$, and with it every average
 of it.
@@ -1062,7 +1121,8 @@ a Sard-regular value as before, is a regular level component (regular
 since $|\nabla W|=|b'(Z^*)|\neq0$; a \emph{complete} component since
 $Z^*$ is an isolated root of $b(Z)=c^*$ by $b'(Z^*)\neq0$, so the level
 contains no other nearby points) which is a circle in
-$\T_\xi\times\R$ generating $H_1(\T_\xi\times\R;\ZZmod)$.
+$\T_\xi\times\R$ freely homotopic to $\{Z=\mathrm{const}\}$, generating
+$H_1(\T_\xi\times\R;\mathbb Z)$.
 The density argument of Step 4 then gives $b''\equiv0$ on $\R$, so
 $b'\equiv c_0$. It remains to exclude $c_0\neq0$ without periodicity:
 if $c_0\neq0$ then, with $S$ bounded, $W=c_0Z+O(1)$, so every regular
@@ -1071,8 +1131,8 @@ compact level set $\{W=\lambda\}$ contained in a slab and separating
 the two ends of $\T_\xi\times\R$ ($W-\lambda$ has opposite signs near
 the two ends, since $W=c_0Z+O(1)$ with $c_0\neq0$).
 Lemma~\ref{lem:annulus-top}, applied on a slab containing this level,
-produces a component realizing the generator of
-$H_1(\T_\xi\times\R;\ZZmod)$, violating the hypothesis. Hence $c_0=0$, i.e.\ $b'\equiv0$; the flux statement follows from
+produces a component freely homotopic to a horizontal circle, violating
+the hypothesis. Hence $c_0=0$, i.e.\ $b'\equiv0$; the flux statement follows from
 Lemma~\ref{lem:flux}.
 \end{proof}
 
@@ -1189,7 +1249,7 @@ $\max_Z|A\,b_\varepsilon''|$) are checked by the ancillary script
 analytically above, not by the script.
 \end{proof}
 
-\begin{proposition}[Allowing horizontal winding: the compensated-gap
+\begin{proposition}[Admitting a horizontal level: the compensated-gap
 witness]\label{prop:gapwitness}
 Let $A$ be smooth, not identically zero, with
 $\operatorname{supp}A\subset S_0$ for a closed interval
@@ -1205,8 +1265,8 @@ uniformly bounded (so Hypothesis~\ref{hyp:v} holds), and
   \Fbar=\frac1{4\pi}\oint b'A^2\,dZ=\frac{c}{4\pi}\oint A^2\,dZ\neq0 ;
 \]
 the hypothesis of Theorem~\ref{thm:static} that fails is exactly
-Hypothesis~\ref{hyp:conf}: horizontal regular levels inside the gap
-realize the horizontal generator (Figure~\ref{fig:portraits}(c)).
+Hypothesis~\ref{hyp:conf}: horizontal regular levels inside the gap are
+freely homotopic to a horizontal circle (Figure~\ref{fig:portraits}(c)).
 \end{proposition}
 
 \begin{proof}
@@ -1224,7 +1284,8 @@ Hypothesis~\ref{hyp:conf}; explicitly, $V$ has zero mean and equals
 $c\neq0$ near $S_0$, so $b'\neq0$ somewhere in the interior of the gap
 $\{S=0\}$, and exactly as in Step~3 of Theorem~\ref{thm:static} a
 Sard-regular value there produces a horizontal regular level component
-$\{Z=Z^*\}$, realizing the horizontal generator of $H_1(\T^2;\ZZmod)$.
+$\{Z=Z^*\}$, freely homotopic to a horizontal circle (integer class
+$(1,0)$).
 \end{proof}
 
 \begin{remark}[Hypothesis sharpness]\label{rem:table}
@@ -1251,11 +1312,17 @@ them to every harmonic. For a harmonic-$1$ solution $W_1$ of
 Then $W_k$ is the harmonic-$k$ solution \eqref{eq:static-class} with
 the same $(b,X_0)$: its phase is $k\xi+k\,b'(Z)\tau$. For the two
 witnesses of this section the status of each hypothesis is preserved
-(this is a statement about these witnesses, not about general members:
-regular components of $\cos(\xi-Z)$ have class $(1,1)$, allowed by
-Hypothesis~\ref{hyp:conf}, while for its $k=2$ cover $\cos(2\xi-Z)$
-they have class $(1,2)\equiv(1,0)$ mod~$2$, the forbidden horizontal
-generator). First,
+under the transfer: Proposition~\ref{prop:counterexample}'s levels stay
+contractible (a null-homotopic component lifts to null-homotopic
+components), and Proposition~\ref{prop:gapwitness}'s horizontal circle
+$\{Z=\mathrm{const}\}$ is its own $\eta_k$-preimage, hence stays
+horizontal. This cover-stability is a feature of stating
+Hypothesis~\ref{hyp:conf} by free homotopy: the integer class $\pm(1,0)$
+is neither created nor destroyed by the cover, whereas its mod-$2$
+reduction is unstable --- $\cos(\xi-Z)$ has class $(1,1)$ and its $k=2$
+cover $\cos(2\xi-Z)$ has class $(1,2)$, both admissible here, yet
+$(1,2)\equiv(1,0)$ mod~$2$ would be spuriously forbidden by a mod-$2$
+condition. First,
 $v_k(\xi,Z,\tau)=v_1(k\xi,Z,k\tau)$, so $\sup|v|$ is unchanged (and
 $u_k=k\,u_1(k\xi,\cdot,k\tau)$ stays bounded). Second, at each time
 $\tau$ the level sets of $W_k(\cdot,\cdot,\tau)$ are the preimages of
@@ -1316,7 +1383,12 @@ for the proofs, which are complete above; they pin the computational
 identities and make the counterexample independently checkable in one
 command (\texttt{make verify}, run in the ancillary directory;
 \texttt{make verify-mutations} for the corruption battery). Each script
-asserts its checks and exits with nonzero status on any failure.
+asserts its checks and exits with nonzero status on any failure. The
+counterexample of Proposition~\ref{prop:counterexample} is proved
+analytically above; the grid check is an auxiliary diagnostic, and its
+one expensive loop (the secular-slope grid) accepts a
+\texttt{--fast} flag with the same acceptance gates (see the ancillary
+\texttt{README} for timings and reference values).
 
 \begin{itemize}
 \item \texttt{cas\_class\_exactness.py} --- exact symbolic verification
@@ -1365,6 +1437,12 @@ script & method & parameters & result (acceptance gate)\\
 \end{tabular}\end{center}
 
 \begin{thebibliography}{99}
+
+\bibitem{BMTOnsager2023}
+D.~W.~Boutros, S.~Markfelder, E.~S.~Titi,
+\emph{On energy conservation for the hydrostatic Euler equations: an
+Onsager conjecture}, Calc.\ Var.\ Partial Differential Equations
+\textbf{62} (2023), no.~8, Paper No.~219.
 
 \bibitem{BMT2024}
 D.~W.~Boutros, S.~Markfelder, E.~S.~Titi,
@@ -1424,10 +1502,21 @@ solutions to the hydrostatic Euler equations in a nozzle},
 Arch.\ Ration.\ Mech.\ Anal.\ \textbf{248} (2024), no.~6,
 Paper No.~116.
 
+\bibitem{Martin2023}
+C.~I.~Martin,
+\emph{Liouville-type results for time-dependent stratified water flows
+over variable bottom in the $\beta$-plane approximation},
+Phys.\ Fluids \textbf{35} (2023), no.~10, Paper No.~106601.
+
 \bibitem{MasmoudiWong2012}
 N.~Masmoudi, T.~K.~Wong,
 \emph{On the $H^s$ theory of hydrostatic Euler equations},
 Arch.\ Ration.\ Mech.\ Anal.\ \textbf{204} (2012), no.~1, 231--271.
+
+\bibitem{PeraltaSlobodeanu2023}
+D.~Peralta-Salas, R.~Slobodeanu,
+\emph{A Liouville-type theorem for the 3D primitive equations},
+Phys.\ D \textbf{453} (2023), Paper No.~133821.
 
 \bibitem{Renardy2009}
 M.~Renardy,

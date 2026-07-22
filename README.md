@@ -8,12 +8,12 @@ Paper and gated exact-verification package for
 **Result.** On the periodic cell `T^2`, for each harmonic `k ≥ 1` the class of exact solutions
 of the 2D hydrostatic Euler equations whose `ξ`-spectrum is supported on `{0, ±k}` is **exactly
 parametrized** in Fourier form: an arbitrary smooth mean profile `b(Z,τ)` transports an
-arbitrary initial fluctuation by the accumulated shear, and the modal energy `S = P² + Q²` is
+arbitrary initial fluctuation by the accumulated shear, and the squared modal amplitude `S = P² + Q²` is
 time-independent. The main theorem is a Liouville-type rigidity statement:
 
 - **Flux rigidity.** Every such solution which is *ancient*, has *uniformly bounded transverse
   velocity* `v` on `τ ≤ 0`, and for which, at almost every time, *no regular stream-function
-  level component realizes the horizontal generator* of `H₁(T²; Z₂)`, has vanishing backward
+  level component is freely homotopic to a horizontal circle* `{Z=const}` (integer class ±(1,0)), has vanishing backward
   Cesàro mean flux `Φ̄ = −⟨u²v⟩̄ = 0`.
 - **Mechanism.** For a time-independent mean profile the mechanism is secular; in general it
   combines an annular separation lemma with an anchored estimate on the time-averaged shear.
@@ -53,8 +53,8 @@ which pins every ancillary file (verify: `shasum -c SHA256SUMS`).
 
 This work was carried out with substantial AI assistance in derivation, computation, and
 drafting. Every claim is backed by the proofs in the paper and the gated verification scripts
-here; the manuscript went through nineteen numbered rounds of independent review
-(114 tracked findings; all resolved except four optional suggestions), including cross-model
+here; the manuscript went through twenty numbered rounds of independent review
+(127 tracked findings; all resolved except a few optional suggestions), including cross-model
 audits and a final full-protocol fresh pass. The author takes full
 responsibility for the contents.
 

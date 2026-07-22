@@ -13,6 +13,23 @@ Run (Python >= 3.11 with sympy + numpy; reference environment: Python
 
 Every script asserts its checks and exits nonzero on any failure.
 
+Timing and resources (reference environment above; the exact-symbolic
+scripts are machine-independent, the float64 script is not):
+
+    cas_class_exactness.py   ~3 s     symbolic, negligible memory
+    verify_flux_formula.py   ~1 s     symbolic, negligible memory
+    counterexample_check.py  ~15-40 s ~0.6 GB peak (one 256x4096 FFT loop)
+    counterexample_check.py --fast  ~3 s   coarser slope grid; all gates pass
+    make verify-mutations    ~2 min   (runs the counterexample script 7x)
+
+On a slow machine the full `counterexample_check.py` can take several
+minutes; use `--fast` (identical gates, slope grid 256x1024 instead of
+256x4096) for a quick pass. Expected reference values (full run):
+calibration |Phi_bar| < 1e-13 (env 7.8e-21); PDE residual ~1.5e-7;
+time-mean flux = 5*eps/8 = 0.1875 (rel ~1e-16); fitted secular slope
+1.390537 vs predicted 1.390564 (rel ~2e-5). The counterexample is proved
+analytically in the paper; these numerics are auxiliary diagnostics.
+
 - cas_class_exactness.py -- exact symbolic (SymPy) verification of the
   single-mode classification (rotation law, SYMBOLIC harmonic k), conservation
   of S = P^2 + Q^2, the velocity formula, the flux formula and cubic parity
@@ -26,6 +43,7 @@ Every script asserts its checks and exits nonzero on any failure.
   control (b' == 0 => zero flux through the identical pipeline) and literal
   reference anchors (0.1875, 1.390564) independent of the eps symbol. Gate
   values are acceptance thresholds; exact residuals are platform-dependent.
+  Accepts `--fast` (coarser slope grid; same gates) for a quick pass.
 - mutation_tests.py -- applies nine single-site mathematical corruptions to
   temporary copies of the checkers (including a corruption of the calibration
   control itself) and asserts each corrupted checker exits nonzero (a checker

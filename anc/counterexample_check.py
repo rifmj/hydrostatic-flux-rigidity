@@ -31,10 +31,23 @@ Checks (floating-point spot check at eps = 0.3; nonzero exit on failure):
       prediction itself matches the literal 1.390564 to 1e-5.
 Confinement/topology is proved analytically in the paper (Prop. 7.1) and is
 NOT tested here.
+
+Usage:
+  python3 counterexample_check.py           # full grid (reference run, ~15-40 s)
+  python3 counterexample_check.py --fast     # reduced slope grid (~2-4 s)
+The exact-identity gates (0)-(2c) are unchanged by --fast; only the secular
+slope test (3) uses a coarser grid and fewer time slices (the single
+expensive loop). All gates and their acceptance thresholds are identical;
+--fast trades a little slope precision (still well within the 1e-2 gate) for
+speed on slower machines. The counterexample is proved analytically in the
+paper; these numerics are auxiliary diagnostics.
 """
+import sys
+
 import numpy as np
 import sympy as sp
 
+FAST = "--fast" in sys.argv[1:]
 EPS = 0.3
 # Literal reference constants -- independent of the EPS symbol (anti
 # self-reference anchors): 5*0.3/8 and max_Z |A b''| at eps = 0.3.
@@ -124,8 +137,11 @@ gate("(2c) flux time-independent", spread < 1e-12,
      f"max|Phi(tau) - mean| = {spread:.1e}")
 
 # ---- (3) secular slope: fitted vs sympy prediction --------------------------
-XI2, ZZ2, kxi2, kz2 = make_grid(256, 4096)
-taus2 = np.linspace(0, 400, 401)
+# The single expensive loop; --fast coarsens its grid and time sampling only.
+gz_slope = 1024 if FAST else 4096
+n_slope_t = 161 if FAST else 401
+XI2, ZZ2, kxi2, kz2 = make_grid(256, gz_slope)
+taus2 = np.linspace(0, 400, n_slope_t)
 vmax = np.empty(len(taus2))
 for i, t in enumerate(taus2):
     W = W_sample(XI2, ZZ2, t)
