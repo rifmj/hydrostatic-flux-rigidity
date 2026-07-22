@@ -53,8 +53,8 @@ which pins every ancillary file (verify: `shasum -c SHA256SUMS`).
 
 This work was carried out with substantial AI assistance in derivation, computation, and
 drafting. Every claim is backed by the proofs in the paper and the gated verification scripts
-here; the manuscript went through twenty numbered rounds of independent review
-(127 tracked findings; all resolved except a few optional suggestions), including cross-model
+here; the manuscript went through twenty-one numbered rounds of independent review
+(130 tracked findings; all resolved except a few optional suggestions), including cross-model
 audits and a final full-protocol fresh pass. The author takes full
 responsibility for the contents.
 
